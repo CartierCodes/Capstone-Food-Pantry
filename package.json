@@ -1,0 +1,23 @@
+{
+  "name": "capstone-food-pantry",
+  "version": "1.0.0",
+  "description": "Lewis University Software Capstone project that a local food bank would be able to use",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CartierCodes/Capstone-Food-Pantry.git"
+  },
+  "author": "Carter, Mariela, and Mustafa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CartierCodes/Capstone-Food-Pantry/issues"
+  },
+  "homepage": "https://github.com/CartierCodes/Capstone-Food-Pantry#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.4"
+  }
+}
