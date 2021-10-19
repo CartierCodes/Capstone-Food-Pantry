@@ -17,7 +17,7 @@ const port = 3000;
 
 app.use('/', routes);
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/website.html')
+  res.sendFile('/website.html')
 })
 
 // Catch 404 Errors
