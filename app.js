@@ -2,6 +2,7 @@ const express = require('express');
 const hbs = require('express-handlebars');
 const routes = require('./public/js/routes');
 
+
 const app = express();
 
 app.use(express.static(__dirname + '/public'));
@@ -15,6 +16,9 @@ app.engine('hbs', hbs({
 const port = 3000;
 
 app.use('/', routes);
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/website.html')
+})
 
 // Catch 404 Errors
 app.use(function(req, res, next) {
