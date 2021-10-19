@@ -3,3 +3,27 @@
 body {
     background-color: white;
 }
+
+.dropbtn {
+    background-color: rgb(192, 192, 192);
+    color: white;
+    padding: 14px;
+    font-size: 14px;
+    border: none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+}
+
+.dropdown-content a {
+    color: white;
+}
