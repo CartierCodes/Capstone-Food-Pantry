@@ -1,5 +1,9 @@
 /* CSS for Home page only */
 
+h1 {
+    text-align: center;
+}
+
 body {
     background-color: white;
 }
