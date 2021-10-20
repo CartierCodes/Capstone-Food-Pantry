@@ -16,9 +16,6 @@ app.engine('hbs', hbs({
 const port = 3000;
 
 app.use('/', routes);
-app.get('/', (req, res) => {
-  res.sendFile('website.html')
-})
 
 // Catch 404 Errors
 app.use(function(req, res, next) {
