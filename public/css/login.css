@@ -1,0 +1,30 @@
+#main-holder {
+    background-color: white;
+}
+
+#login-error-msg-holder {
+    text-align: center;
+}
+
+#login-error-msg {
+    text-align: center;
+}
+
+#login-form {
+    text-align: center;
+}
+
+.login-form-field::placeholder {
+    color: #424141
+}
+
+#login-form-submit {
+    padding: 7px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    background-color: gray;
+    cursor: pointer;
+    outline: none;
+}

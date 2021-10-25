@@ -2,38 +2,31 @@
 
 body {
     text-align: center;
-    background-color: #262626;
+    background-color: white;
     margin: 0;
     padding: 0;
 }
 
-#main-holder {
-    background-color: white;
+.nav-bar-ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: gainsboro
 }
 
-#login-error-msg-holder {
+.nav-bar-li {
+    float: left;
+}
+
+.nav-bar-li a {
+    display: block;
+    color: black;
     text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
 }
 
-#login-error-msg {
-    text-align: center;
-}
-
-#login-form {
-    text-align: center;
-}
-
-.login-form-field::placeholder {
-    color: #424141
-}
-
-#login-form-submit {
-    padding: 7px;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    font-weight: bold;
-    background-color: gray;
-    cursor: pointer;
-    outline: none;
+.nav-bar-li a:hover {
+    background-color: rgb(143, 143, 143);
 }

@@ -22,6 +22,8 @@ app.use(function(req, res, next) {
   var err = new Error('Error 404 - Page Not Found');
   err.status = 404;
   next(err);
+  // console.log("\nERROR 404... REDIRECTING TO HOME PAGE\nSee app.js to uncomment full error report\n")
+  // res.redirect("/");
 });
 
 app.listen(port, function (req, res) {

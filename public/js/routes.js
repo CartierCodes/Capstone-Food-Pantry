@@ -7,4 +7,16 @@ router.get('/', async (req, res) => {
     });
 });
 
+router.get('/login', async (req, res) => {
+    res.render('login', {
+        title: "Login"
+    });
+});
+
+router.get('/inventory', async (req, res) => {
+    res.render('inventory', {
+        title: "Inventory"
+    });
+});
+
 module.exports = router;
