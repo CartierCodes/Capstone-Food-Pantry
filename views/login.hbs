@@ -4,14 +4,26 @@
 <!-- Scripts -->
 <script src="/js/login.js"></script>
 
-<h1 id="login-header">Login</h1>
+<h1 id="login-header">Register</h1>
 
-<form id="login-form">
-    <input type="text" name="username" id="username-field" class="login-form-field" placeholder="Username">
-    <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password">
-    <input type="submit" value="Login" id="login-form-submit"><br>
-    <input type="checkbox" id="community" name="community" value="community">
-    <label for="community">Community member</label><br>
-    <input type="checkbox" id="foodpantry" name="foodpantry" value="foodpantry">
-    <label for="foodpantry">Food Pantry/Store member</label><br>
+<form div class="container">
+    <label for="email"><b>Enter Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email">
+    <label for="pwd"><b>Password</b></label>
+    <input type="password" placeholder="Enter password" name="pwd">
+    <label for="confirm"><b>Confirm Password</b></label>
+    <input type="password" placeholder="Confirm Password" name="confirm">
+    <button type="submit" class"registerbtn">Register</button>
+    </div>
+    <div class="container signin">
+        <p>Already have an account? <a href="loginForm">Sign In</a></p>
+    </div>
+</form>
+
+<form name="loginForm">
+    <label for="username">Username: </label>
+    <input type="text" id="username">
+    <label for="password">Password: </label>
+    <input type="password" id="pwd">
+    <input type="submit" class="login" value="Login" onclick="validation()" formtarget="_blank">
 </form>
