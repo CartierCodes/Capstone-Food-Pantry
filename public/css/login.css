@@ -2,21 +2,26 @@
     background-color: white;
 }
 
+
 #login-error-msg-holder {
     text-align: center;
 }
+
 
 #login-error-msg {
     text-align: center;
 }
 
+
 #login-form {
     text-align: center;
 }
 
+
 .login-form-field::placeholder {
     color: #424141
 }
+
 
 #login-form-submit {
     padding: 7px;
@@ -29,11 +34,13 @@
     outline: none;
 }
 
+
 .reg_container{
     margin: auto;
     width: 80%;
     height: 300px;
 }
+
 
 .reg_row{
     margin: 2%;
