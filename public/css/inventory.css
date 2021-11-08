@@ -1,0 +1,11 @@
+#tile-container {
+    /* MAKE FLEX */
+}
+
+.tile {
+    margin: 15px;
+}
+
+.tile-img {
+    max-width: 200px;
+}

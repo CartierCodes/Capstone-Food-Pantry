@@ -13,6 +13,8 @@ app.engine('hbs', hbs({
   defaultLayout: 'layout',          
 }));
 
+app.use(express.static('views/images'));
+
 const port = 3000;
 
 app.use('/', routes);
