@@ -6,22 +6,21 @@
 
 <h1 id="login-header">Register</h1>
 
-<form div class="container">
+<form class="container" action="/inventory">
     <label for="email">Enter Email:</label>
     <input type="text" placeholder="Enter Email" name="email">
     <label for="pwd">Password:</label>
     <input type="password" placeholder="Enter password" name="pwd">
     <label for="confirm">Confirm Password:</label>
     <input type="password" placeholder="Confirm Password" name="confirm">
-    <button type="submit" onclick="window.location.href='/inventory'" class="register">Register</button>
-    </div>
+    <button type="submit" class="register">Register</button>
 </form>
 
 <h1>Login</h1>
-<form name="loginForm">
+<form name="loginForm" action="/inventory">
     <label for="username">Username: </label>
     <input type="text" id="username">
     <label for="password">Password: </label>
     <input type="password" id="pwd">
-    <button type="submit" onclick="window.location.href='/inventory'" class="login">Login</button>
+    <button type="submit" class="login">Login</button>
 </form>
