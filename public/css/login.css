@@ -28,3 +28,13 @@
     cursor: pointer;
     outline: none;
 }
+
+.reg_container{
+    margin: auto;
+    width: 80%;
+    height: 300px;
+}
+
+.reg_row{
+    margin: 2%;
+}
