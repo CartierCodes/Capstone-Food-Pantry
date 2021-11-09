@@ -34,14 +34,30 @@
     outline: none;
 }
 
-
-.reg_container{
-    margin: auto;
-    width: 80%;
-    height: 300px;
+body{
+    background-image: url("/img/login_bg.jpg");
+    background-position: center;
+    background-size: cover;
+    color: white;
 }
 
-
-.reg_row{
-    margin: 2%;
+.box{
+    background-color: rgba(175, 120, 246, 0.3);
+    padding: 2%;
+    margin: 1%;
+    filter: drop-shadow(0 -6mm 4mm rgb(160, 0, 210));
 }
+button{
+    color: black;
+}
+
+.button {
+    transition-duration: 0.4s;
+    border-radius: 10px;
+    width: 100px;
+  }
+  
+  .button:hover {
+    background-color: rgb(160, 0, 210); /* Green */
+    color: white;
+  }
