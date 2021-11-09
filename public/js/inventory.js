@@ -1,3 +1,22 @@
+function myFunction() {
+    var checkbox = document.getElementById("community");
+    if (checkbox.checked == true){
+        text.style.display = "block";
+    } else {
+        text.style.display = "none";
+    }
+}
+
+function myFunction1(){
+    var checkbox = document.getElementById("pantry");
+    if (checkbox.checked == true){
+        text.style.display = "block";
+    } else {
+        text.style.display = "none";
+    }
+}
+
+
 function createItemTile(data) {
     const tile = document.createElement("div");
     tile.classList.add("tile");
