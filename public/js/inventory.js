@@ -1,4 +1,4 @@
-function myFunction() {
+function myFunction(communityMember) {
     var checkbox = document.getElementById("community");
     if (checkbox.checked == true){
         text.style.display = "block";
@@ -7,13 +7,9 @@ function myFunction() {
     }
 }
 
-function myFunction1(){
-    var checkbox = document.getElementById("pantry");
-    if (checkbox.checked == true){
-        text.style.display = "block";
-    } else {
-        text.style.display = "none";
-    }
+function myFunction1(pantryMember) {
+    var pantryForm = document.getElementById("pantryForm");
+    pantryForm.style.display = pantryMember.checked ? "block" : "none";
 }
 
 
