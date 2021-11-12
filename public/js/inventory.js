@@ -1,3 +1,18 @@
+function myFunction(communityMember) {
+    var checkbox = document.getElementById("community");
+    if (checkbox.checked == true){
+        text.style.display = "block";
+    } else {
+        text.style.display = "none";
+    }
+}
+
+function myFunction1(pantryMember) {
+    var pantryForm = document.getElementById("pantryForm");
+    pantryForm.style.display = pantryMember.checked ? "block" : "none";
+}
+
+
 function createItemTile(data) {
     const tile = document.createElement("div");
     tile.classList.add("tile");
