@@ -1,23 +1,21 @@
-function myFunction(communityMember) {
-    var checkbox = document.getElementById("communityMember");
-    if (checkbox.checked == true){
-        text.style.display = "block";
-    } else {
-        text.style.display = "none";
-    }
-}
+// function myFunction(communityMember) {
+//     var checkbox = document.getElementById("communityMember");
+//     if (checkbox.checked == true){
+//         text.style.display = "block";
+//     } else {
+//         text.style.display = "none";
+//     }
+// }
 
-function myFunction1() {
-    var x = document.getElementById("pantryMember").checked;
-    if (x) {
-        document.getElementById("Member").style.display = "block";
-    } else {
-        document.getElementById("Member").style.display = "none";
-    }
-}
-document.getElementById("pantryMember").onclick = myFunction1;
-
-
+// function myFunction1() {
+//     var x = document.getElementById("pantryMember").checked;
+//     if (x) {
+//         document.getElementById("Member").style.display = "block";
+//     } else {
+//         document.getElementById("Member").style.display = "none";
+//     }
+// }
+// document.getElementById("pantryMember").onclick = myFunction1;
 
 
 function createItemTile(data) {
@@ -35,7 +33,7 @@ function createItemTile(data) {
     food.textContent = data.name;
 
     const quantity = document.createElement("div");
-    quantity.textContent = data.quantity;
+    quantity.textContent = "Quantity: " + data.quantity;
 
     tile.appendChild(img);
     tile.appendChild(food);
@@ -44,12 +42,20 @@ function createItemTile(data) {
     return tile;
 }
 
+let tempFoodDatabase = [
+    {name:"Sweet Potato", quantity:"5"},
+    {name:"Apples", quantity:"10"},
+    {name:"Bananas", quantity:"15"},
+    {name:"Bread", quantity:"1"},
+    {name:"Pineapple", quantity:"7"},
+    {name:"Jelly", quantity:"4"},
+    {name:"Peanut Butter", quantity:"12"},
+    {name:"Eggs", quantity:"24"},
+]
+
 function loadItems() {
     const tileContainer = document.getElementById("food-container");
-    tileContainer.appendChild(createItemTile({name:"Sweet Potato", quantity:"5"}));
-    tileContainer.appendChild(createItemTile({name:"Apples", quantity:"10"}));
-    tileContainer.appendChild(createItemTile({name:"Bananas", quantity:"15"}));
-    tileContainer.appendChild(createItemTile({name:"Bread", quantity:"1"}));
+    tempFoodDatabase.forEach(item => tileContainer.appendChild(createItemTile(item)))
     console.log("added items");
 }
 
