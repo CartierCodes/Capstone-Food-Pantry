@@ -1,5 +1,5 @@
 function myFunction(communityMember) {
-    var checkbox = document.getElementById("community");
+    var checkbox = document.getElementById("communityMember");
     if (checkbox.checked == true){
         text.style.display = "block";
     } else {
@@ -7,10 +7,17 @@ function myFunction(communityMember) {
     }
 }
 
-function myFunction1(pantryMember) {
-    var pantryForm = document.getElementById("pantryForm");
-    pantryForm.style.display = pantryMember.checked ? "block" : "none";
+function myFunction1() {
+    var x = document.getElementById("pantryMember").checked;
+    if (x) {
+        document.getElementById("Member").style.display = "block";
+    } else {
+        document.getElementById("Member").style.display = "none";
+    }
 }
+document.getElementById("pantryMember").onclick = myFunction1;
+
+
 
 
 function createItemTile(data) {

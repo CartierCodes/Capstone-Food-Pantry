@@ -7,13 +7,15 @@
 <label for="communityMember">Community Member</label>
     <input type="checkbox" id="communityMember" onclick="myFunction()">
 <label for="pantryMember"> Food Pantry/Store Member</label>
-    <input type="checkbox" id="pantryMember" onclick="myFunction1()">
+    <input type="checkbox" id="pantryMember" onclick="myFunction1(pantryMember)">
 
-<form name="pantryForm" action="">
-    Food item: <input type="text" name="food">
-    Location: <input type="text" name="location">
-    How many units/lbs: <input type="text" name="units">
-    <input type="submit" value="Submit">
-</form>
+<div id="Member" style="display:none">
+<tr>
+    <td>Food item: <input type="text" name="food"></td>
+    <td>Location: <input type="text" name="location"></td>
+    <td>How many units/lbs: <input type="text" name="units"></td>
+    <td><input type="submit" value="Submit"></td>
+</tr>
+</div>
 
 <div id="food-container"></div>
