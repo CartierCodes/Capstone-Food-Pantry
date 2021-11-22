@@ -4,18 +4,16 @@
 <!-- Scripts -->
 <script src="/js/inventory.js"></script>
 
-<label for="communityMember">Community Member</label>
-    <input type="checkbox" id="communityMember" onclick="myFunction1()">
-<label for="pantryMember"> Food Pantry/Store Member</label>
-    <input type="checkbox" id="pantryMember" onclick="myFunction(pantryMember)">
+<label for="staffMember"> Food Pantry/Store Member</label>
+    <input type="checkbox" id="staffMember" onclick="staffOnClick()">
 
 <div id="Member" style="display:none">
-<tr>
-    <td>Food item: <input type="text" name="food"></td>
-    <td>Location: <input type="text" name="location"></td>
-    <td>How many units/lbs: <input type="text" name="units"></td>
-    <td><input type="submit" value="Submit"></td>
-</tr>
+    <tr>
+        <td>Food item: <input type="text" name="food"></td>
+        <td>Location: <input type="text" name="location"></td>
+        <td>How many units/lbs: <input type="text" name="units"></td>
+        <td><input type="submit" value="Submit" onclick="addFoodItem()"></td>
+    </tr>
 </div>
 
 <div id="food-container"></div>

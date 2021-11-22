@@ -1,22 +1,26 @@
-// function myFunction(communityMember) {
-//     var checkbox = document.getElementById("communityMember");
-//     if (checkbox.checked == true){
-//         text.style.display = "block";
-//     } else {
-//         text.style.display = "none";
-//     }
-// }
+// TODO
+// Switch this from checkBox onclick method to when the page loads and check login details
+// (once login framework is done)
+function staffOnClick() {
+    let isChecked = document.getElementById("staffMember").checked;
 
-// function myFunction1() {
-//     var x = document.getElementById("pantryMember").checked;
-//     if (x) {
-//         document.getElementById("Member").style.display = "block";
-//     } else {
-//         document.getElementById("Member").style.display = "none";
-//     }
-// }
-// document.getElementById("pantryMember").onclick = myFunction1;
+    if (isChecked) {
+        document.getElementById("Member").style.display = "block";
+    } 
+    else {
+        document.getElementById("Member").style.display = "none";
+    }
+}
 
+function addFoodItem() {
+    let name = document.getElementsByName("food")[0].value;
+    let location = document.getElementsByName("location")[0].value;
+    let amount = document.getElementsByName("units")[0].value;
+    
+    // TODO
+    // package as item and add it to database
+    // then reload the item tiles
+}
 
 function createItemTile(data) {
     const tile = document.createElement("div");
