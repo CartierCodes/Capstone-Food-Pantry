@@ -4,6 +4,12 @@
 <!-- Scripts -->
 <script src="/js/inventory.js"></script>
 
+{{#if user}}
+    <div class="alert-warning"> {{user.email}}</div>
+{{else}}
+    <div class="alert-warning"> NO User </div>
+{{/if}}
+
 <label for="communityMember">Community Member</label>
     <input type="checkbox" id="communityMember" onclick="myFunction()">
 <label for="pantryMember"> Food Pantry/Store Member</label>
