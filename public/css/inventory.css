@@ -1,11 +1,19 @@
-#tile-container {
+#food-container {
     /* MAKE FLEX */
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1160px;
+    margin: auto;
+    justify-content: center;
 }
 
 .tile {
+    background-color: rgba(28, 78, 56, 0.7);
     margin: 15px;
+    max-width: 150px;
+    height: 130px;
 }
 
 .tile-img {
-    max-width: 200px;
+    max-width: 150px;
 }

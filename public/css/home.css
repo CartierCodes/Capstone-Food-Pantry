@@ -44,6 +44,15 @@ body {
     font-family: 'Times New Roman', Times, serif;
 }
 
+.context .line {
+    text-align: center;
+    border-radius: 25px;
+    background: lightgreen;
+    padding: 6px;
+    width: 98%;
+    height: 5px;
+}
+
 .grid {
     display: flex;
     justify-content: center;
