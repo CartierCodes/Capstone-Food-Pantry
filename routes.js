@@ -6,6 +6,9 @@ const router = express.Router();
 const User = require('./models/User')
 
 
+const FoodItem = require("./models/FoodItem")
+
+
 
 router.get('/', async (req, res) => {
     res.render('home', {
@@ -58,5 +61,6 @@ router.all('/inventory', async (req, res) => {
         user:req.user
     });
 });
+
 
 module.exports = router

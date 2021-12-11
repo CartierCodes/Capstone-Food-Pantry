@@ -6,6 +6,7 @@ const bcrypt = require('bcrypt')
 function initialize(passport) {
     console.log('Initialized local strategy')
     const authenticateUser = async (email, password, done) => {
+
         await User.findOne({email: email}).exec().then(async (user) => {
             console.log(user)
             console.log(" passport-config 10: User is: " + user)
