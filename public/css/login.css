@@ -38,7 +38,6 @@ body{
     /* background-image: url("/img/login_bg.jpg"); */
     background-position: center;
     background-size: cover;
-    color: white;
 }
 
 .box{
@@ -48,7 +47,9 @@ body{
     margin: 1%;
     filter: drop-shadow(0 -6mm 4mm rgb(127, 216, 174));
     z-index: 50px;
+    color: white;
 }
+
 button{
     color: black;
     filter: drop-shadow(2mm 2mm 2mm rgb(6, 46, 27));
@@ -60,7 +61,7 @@ button{
     width: 100px;
   }
   
-  .button:hover {
+.button:hover {
     background-color: rgb(0, 44, 11); /* Green */
     color: white;
-  }
+}

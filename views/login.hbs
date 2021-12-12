@@ -1,22 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-    <meta charset="utf-8">
-    ">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login Page</title>
-
-
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
-    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/login.css">
-
-</head>
-
-<body>
-
+<link rel="stylesheet" href="/css/login.css">
 
 <div class="top-content">
     {{#if messages.error}}
@@ -76,7 +58,7 @@
                         <div class="form-top">
                             <div class="form-top-left">
                                 <h3>Sign up now</h3>
-                                <p>Fill the form for Registration:</p>
+                                <p>Fill out the form for Registration:</p>
                             </div>
                         </div>
                         <div class="form-bottom">
@@ -100,7 +82,12 @@
                                     <input type="password" name="rpassword" placeholder="Repeat Password"
                                            class="form-password form-control" id="form-rpassword">
                                 </div>
-                                <button type="submit" class="button btn-primary">Sign me up</button>
+                                <div class="form-check">
+                                    <label class="form-check-label" for="employeeCheck">Employee account?</label>
+                                    <input class="form-check-input" name="employeeCheck" type="checkbox"
+                                            value="true" id="form-employeeCheck">
+                                </div>
+                                <button type="submit" class="button btn-primary">Sign up</button>
                             </form>
                         </div>
                     </div>
@@ -111,7 +98,4 @@
 </div>
 
 
-<script src="/bootstrap/js/bootstrap.min.js"></script>
-</body>
-
-</html>
+{{!-- <script src="/bootstrap/js/bootstrap.min.js"></script> --}}

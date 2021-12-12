@@ -15,9 +15,7 @@ const app = express();
 
 app.use(express.urlencoded({extended: false}))
 
-
 initializePassport(passport)
-
 
 app.use(flash())
 app.use(session({
@@ -39,12 +37,17 @@ app.engine('hbs', hbs({
     extname: 'hbs',
     layoutsDir: __dirname + '/views/layouts',
     defaultLayout: 'layout',
+    helpers: {
+        'stringify': (context) => { return JSON.stringify(context); },    
+        ifCond: function (v1, v2, options) {
+            return (typeof v1 !== 'undefined' && v2) ? options.fn(this) : options.inverse(this);
+        }
+    }
 }));
 
 app.use(express.static('views/images'));
 
 const port = 3000;
-
 
 // Catch 404 Errors
 app.use(function (req, res, next) {
@@ -55,8 +58,6 @@ app.use(function (req, res, next) {
     // console.log("\nERROR 404... REDIRECTING TO HOME PAGE\nSee app.js to uncomment full error report\n")
     // res.redirect("/");
 });
-
-
 
 app.listen(port, function (req, res) {
     console.log('Server listening on port', port);

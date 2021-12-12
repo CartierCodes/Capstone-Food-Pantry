@@ -3,17 +3,42 @@
 
 <!-- Scripts -->
 <script src="/js/inventory.js"></script>
+<script> const foodItems = {{{ stringify food }}}; </script>
 
-<label for="staffMember"> Food Pantry/Store Member</label>
-    <input type="checkbox" id="staffMember" onclick="staffOnClick()">
+{{#ifCond user employee}}
+    <div class="employeeOnlyContainer">
+        <h2 style="color: red;">EMPLOYEE ONLY</h1>
+        <h4>Add Items to Food Bank Database Below</h2>
+        <div class="form">
+            <form name="itemForm" action="/inventory" method="POST">
+                <div class="form-group">
+                    <label for="item">Item</label>
+                    <input type="text" name="item" class="form-control" id="item" placeholder="Ex: Bananas">
+                </div>
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <select class="form-control" name="location" id="location">
+                        <option>Romeoville</option>
+                        <option>Joliet</option>
+                        <option>Lockport</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <select class="form-control" name="category" id="category">
+                        <option>Food</option>
+                        <option>Drink</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Quantity</label>
+                    <input type="text" class="form-control" name="quantity" id="quantity" placeholder="Ex: 15">
+                </div>
+                <button type="submit" class="button btn-primary">Add to Database</button>
+            </form>
+        </div>
+    </div>
+{{/ifCond}} 
 
-<div id="Member" style="display:none">
-    <tr>
-        <td>Food item: <input type="text" name="food"></td>
-        <td>Location: <input type="text" name="location"></td>
-        <td>How many units/lbs: <input type="text" name="units"></td>
-        <td><input type="submit" value="Submit" onclick="addFoodItem()"></td>
-    </tr>
-</div>
 
 <div id="food-container"></div>

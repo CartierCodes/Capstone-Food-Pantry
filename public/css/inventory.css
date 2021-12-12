@@ -1,17 +1,25 @@
+.employeeOnlyContainer {
+    max-width: 500px;
+    margin: auto;
+    margin-top: 5px;
+    padding: 10px;
+    background: lightgray;
+    border-width: 10px;
+    border-radius: 20px;
+}
+
 #food-container {
     /* MAKE FLEX */
-    display: flex;
-    flex-wrap: wrap;
     max-width: 1160px;
     margin: auto;
     justify-content: center;
 }
 
 .tile {
-    background-color: rgba(28, 78, 56, 0.7);
+    display: flex;
+    justify-content: space-between;
+    align-content: space-between;
     margin: 15px;
-    max-width: 150px;
-    height: 130px;
 }
 
 .tile-img {

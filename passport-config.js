@@ -8,16 +8,16 @@ function initialize(passport) {
     const authenticateUser = async (email, password, done) => {
 
         await User.findOne({email: email}).exec().then(async (user) => {
-            console.log(user)
-            console.log(" passport-config 10: User is: " + user)
+            // console.log(user)
+            // console.log(" passport-config 10: User is: " + user)
             if (user == null)
                 return done(null, false, {message: "no user found"});
             try {
                 // or statement is to check locally
-                console.log("passport-config 16: compare password")
-                console.log("Password: " + password + ", hash: " + user.password)
+                // console.log("passport-config 16: compare password")
+                // console.log("Password: " + password + ", hash: " + user.password)
                 if (await bcrypt.compare(password, user.password)) {
-                    console.log("matched no error")
+                    // console.log("matched no error")
                     return done(null, user)
                 } else {
                     return done(null, false, {message: "password is wrong"})

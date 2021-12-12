@@ -5,15 +5,21 @@
         <!-- Meta -->
         <meta charset="UTF-8">
         <title>{{ title }}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Styles -->
         <link rel="stylesheet" href="/css/styles.css">
+        <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
 
         <!-- Scripts -->
         <script src="/js/layout.js"></script>
     </head>
     <body>
         <h1>Food Bank</h1>
+        {{#if user includeZero=true}}
+        <div>Logged in as {{ user.email }}</div>
+        {{/if}} 
         <nav>
             <ul class="nav-bar-ul">
                 <li class="nav-bar-li"><a href="/">Home</a></li>
