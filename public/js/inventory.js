@@ -34,6 +34,33 @@ function loadItems() {
     console.log("added items");
 }
 
+//function sendMail() {
+//   const transporter = nodemailer.createTransport({
+//    service: 'gmail',
+//    auth: {
+//       user: 'foodbank@gmail.com',
+//        pass: 'foodbank123',
+//    }
+//})
+
+
+//const mailer = (recipient) => {
+//    transporter.sendMail({
+//        from: 'foodbank@gmail.com',
+//        to: recipient,
+//        subject: 'New food availability item!',
+//        text: 'There is a new food availability item.'
+//    })
+//    , function (error, info){
+//        if (error){
+//            console.log(error);
+//        }else {
+//            console.log('Email sent: ' + info.response);
+//        }
+//    }
+//}
+
+
 // Triggers every time the page is loaded
 document.addEventListener("DOMContentLoaded", function() {
     console.log("Inventory page loaded...");
