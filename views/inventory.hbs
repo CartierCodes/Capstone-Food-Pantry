@@ -5,10 +5,23 @@
 <script src="/js/inventory.js"></script>
 <script> const foodItems = {{{ stringify food }}}; </script>
 
+{{#if itemAdded}}
+    <h2 style="color: green;">**Item Successfully Added**</h2>
+{{/if}}
+
+{{#if itemDeleted}}
+    <h2 style="color: green;">**Item Successfully Deleted**</h2>
+{{/if}} 
+
+{{#if itemError}}
+    <h2 style="color: red;">**Error Completing This Action**</h2>
+{{/if}} 
+
+
 {{#ifCond user employee}}
     <div class="employeeOnlyContainer">
-        <h2 style="color: red;">EMPLOYEE ONLY</h1>
-        <h4>Add Items to Food Bank Database Below</h2>
+        <h2><b>EMPLOYEE ONLY</b></h1>
+        <h4 style="margin-top:25px;">Add Items to Food Bank Database</h2>
         <div class="form">
             <form name="itemForm" action="/inventory" method="POST">
                 <div class="form-group">
@@ -37,8 +50,20 @@
                 <button type="submit" class="button btn-primary">Add to Database</button>
             </form>
         </div>
+        <h4 style="margin-top:25px;">Remove Items from Food Bank Database</h2>
+        <div class="form">
+            <form name="itemForm" action="/inventoryDelete" method="POST">
+                <div class="form-group">
+                    <label for="item">Item to Delete</label>
+                    <input type="text" name="item" class="form-control" id="item" placeholder="Ex: Bread">
+                </div>
+                <button type="submit" class="button btn-primary">Delete</button>
+            </form>
+        </div>
+    </div>
+
     </div>
 {{/ifCond}} 
 
-
+<h3>Available Items</h3>
 <div id="food-container"></div>

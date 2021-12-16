@@ -5,7 +5,7 @@ const passport = require('passport')
 const router = express.Router();
 const User = require('./models/User')
 const FoodItem = require("./models/FoodItem")
-
+const nodemailer = require("nodemailer");
 
 
 router.get('/', async (req, res) => {
@@ -78,34 +78,108 @@ router.get('/inventory', async (req, res) => {
     });
 });
 
+async function sendMail(emailList, foodItem) {
+    let transporter = nodemailer.createTransport({
+        host: 'smtp.gmail.com',
+        port: 465,
+        secure: true, // use SSL
+        auth: {
+          user: "lewiscapstonefoodbank@gmail.com", 
+          pass: "zxcvbnm098",
+        },
+      });
+    console.log(`\n${emailList}\n`);
+      let info = await transporter.sendMail({
+        from: '"Your Local Foodbank" <lewiscapstonefoodbank@gmail.com>',
+        to: emailList.toString(),
+        subject: "New Food Available", 
+        text: `Hello,\nWe would like to inform you that ${foodItem.quantity} ${foodItem.title} are available at the ${foodItem.location} location.`,
+        html: `<p>Hello,</p><p>Hello,\nWe would like to inform you that ${foodItem.quantity} ${foodItem.title} are available at the ${foodItem.location} location.</p><p>Have a great day!<p/>`, 
+      });
+
+      console.log("Message sent: %s", info.messageId);
+      console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+
+}
+
 router.post('/inventory', async (req, res) => {
     try {
         const item = req.body.item
         const location = req.body.location
         const category = req.body.category
-        const quantity = req.body.quantity  
+        const quantity = req.body.quantity
 
         let foodItem = new FoodItem({
             title: item,
             location: location,
             category: category,
-            quantity:quantity
+            quantity: quantity
         })
 
         await foodItem.save()
         console.log("added to database")
 
-        FoodItem.find({}).exec().then(async (foodItems) => {
+        let emailList = []
+        await User.find({}, function (err, users) {
+            users.forEach(user => {
+                emailList.push(user.email);
+            });
+        }).clone();
+
+        await sendMail(emailList, foodItem).catch(console.error);
+
+        await FoodItem.find({}).exec().then(async (foodItems) => {
             res.render('inventory', {
                 title: "Inventory",
                 user:req.user,
                 employee: tempEmployee,
-                food: foodItems
+                food: foodItems,
+                itemAdded: true
             });
         });
+
     } catch (error) {
         console.log(error)
+        await FoodItem.find({}).exec().then(async (foodItems) => {
+            res.render('inventory', {
+                title: "Inventory",
+                user:req.user,
+                employee: tempEmployee,
+                food: foodItems,
+                itemError: true
+            });
+        });
     }
+});
+
+router.post('/inventoryDelete', async (req, res) => {
+    const item = req.body.item;
+
+    await FoodItem.deleteMany({ title: item }, function(error) {
+        if (!error) {
+            FoodItem.find({}).exec().then(async (foodItems) => {
+                res.render('inventory', {
+                    title: "Inventory",
+                    user:req.user,
+                    employee: tempEmployee,
+                    food: foodItems,
+                    itemDeleted: true
+                });
+            });        
+        }
+        else {
+            console.log(error);
+            res.render('inventory', {
+                title: "Inventory",
+                user:req.user,
+                employee: tempEmployee,
+                food: foodItems,
+                itemError: true
+            });
+
+        }
+    })
+
 });
 
 
