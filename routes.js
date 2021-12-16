@@ -9,20 +9,27 @@ const nodemailer = require("nodemailer");
 
 
 router.get('/', async (req, res) => {
+    tempEmployee = false
+    if (req.user && req.user.employee) tempEmployee = true;
+
     res.render('home', {
         title: "Food Bank",
-        user:req.user
+        user:req.user,
+        employee: tempEmployee
     });
 });
 
 
 router.get('/login', async (req, res) => {
+    tempEmployee = false
+    if (req.user && req.user.employee) tempEmployee = true;
+
     res.render('login', {
         title: "Login / Sign up",
-        user:req.user
+        user:req.user,
+        employee: tempEmployee
     })
 })
-
 
 // to be delted
 // a middleware just for checking the intermediate values
@@ -31,6 +38,42 @@ function check(req, res, next) {
     next()
 }
 
+router.get('/post-event', async (req, res) => {
+    tempEmployee = false
+    if (req.user && req.user.employee) tempEmployee = true;
+
+    res.render('post-event', {
+        title: "Post Event",
+        user:req.user,
+        employee: tempEmployee
+    })
+})
+
+router.post('/post-event', async (req, res) => {
+    tempEmployee = false
+    if (req.user && req.user.employee) tempEmployee = true;
+
+    let subject = req.body.subject;
+    let description = req.body.description;
+
+    let emailList = []
+    await User.find({}, function (err, users) {
+        users.forEach(user => {
+            emailList.push(user.email);
+            console.log(user);
+        });
+    }).clone();
+    console.log(emailList)
+    console.log("attempting email sending")
+    await notifyEmail(emailList, subject, description).catch(console.error);
+
+    res.render('post-event', {
+        title: "Post Event",
+        user:req.user,
+        employee: tempEmployee,
+        success: true
+    })
+})
 
 router.post('/login', check, passport.authenticate('local', {
     successRedirect: '/inventory',
@@ -77,6 +120,30 @@ router.get('/inventory', async (req, res) => {
         });
     });
 });
+
+async function notifyEmail(emailList, subject, description) {
+    let transporter = nodemailer.createTransport({
+        host: 'smtp.gmail.com',
+        port: 465,
+        secure: true, // use SSL
+        auth: {
+          user: "lewiscapstonefoodbank@gmail.com", 
+          pass: "zxcvbnm098",
+        },
+      });
+    console.log(`\n${emailList}\n`);
+      let info = await transporter.sendMail({
+        from: '"Your Local Foodbank" <lewiscapstonefoodbank@gmail.com>',
+        to: emailList.toString(),
+        subject: subject, 
+        text: description,
+        html: `<p>${description}<p/>`, 
+      });
+
+      console.log("Message sent: %s", info.messageId);
+      console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+
+}
 
 async function sendMail(emailList, foodItem) {
     let transporter = nodemailer.createTransport({

@@ -25,6 +25,9 @@
                 <li class="nav-bar-li"><a href="/">Home</a></li>
                 <li class="nav-bar-li"><a href="/login">Login</a></li>
                 <li class="nav-bar-li"><a href="/inventory">Inventory</a></li>
+                {{#ifCond user employee}}
+                <li class="nav-bar-li"><a href="/post-event">Post Event</a></li>
+                {{/ifCond}} 
             </ul>
         </nav>
 

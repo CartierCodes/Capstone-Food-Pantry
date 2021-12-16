@@ -1,0 +1,27 @@
+{{#if success}}
+    <h2 style="color: green;">**Notification Has Been Sent**</h2>
+{{/if}}
+
+{{#if emailError}}
+    <h2 style="color: red;">**Error with Notification**</h2>
+{{/if}} 
+
+{{#ifCond user employee}}
+    <div style="max-width:800px;margin:auto;">
+        <h2><b>EMPLOYEE ONLY</b></h1>
+        <h4 style="margin-top:25px;">Create Event Notification</h2>
+        <div class="form">
+            <form name="itemForm" action="/post-event" method="POST">
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="subject" name="subject" class="form-control" id="subject" placeholder="Ex: Food Event @ Location">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description of Event</label>
+                    <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                </div>
+                <button type="submit" class="button btn-primary">Send Email</button>
+            </form>
+        </div>
+    </div>
+{{/ifCond}} 
